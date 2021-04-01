@@ -1,27 +1,27 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "f7a3edd0e31f6af43647cc6a3577daa1",
+    "revision": "f6eced1bb5e2058c92b2f4f0947888f3",
     "url": "/thehideawaypanamacity-react/index.html"
   },
   {
-    "revision": "b145a7893d94281c81e2",
+    "revision": "afe13fbf736a1cf3729c",
     "url": "/thehideawaypanamacity-react/static/css/2.b553dc6b.chunk.css"
   },
   {
-    "revision": "0e1c2d0c81b8745dab82",
+    "revision": "13a5d04d0064433355e7",
     "url": "/thehideawaypanamacity-react/static/css/main.c49fbf15.chunk.css"
   },
   {
-    "revision": "b145a7893d94281c81e2",
-    "url": "/thehideawaypanamacity-react/static/js/2.db9e3ab0.chunk.js"
+    "revision": "afe13fbf736a1cf3729c",
+    "url": "/thehideawaypanamacity-react/static/js/2.dfec6f7f.chunk.js"
   },
   {
     "revision": "1f4c6b73d857b11fbd7c4d9e47674e40",
-    "url": "/thehideawaypanamacity-react/static/js/2.db9e3ab0.chunk.js.LICENSE.txt"
+    "url": "/thehideawaypanamacity-react/static/js/2.dfec6f7f.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "0e1c2d0c81b8745dab82",
-    "url": "/thehideawaypanamacity-react/static/js/main.2dddc61e.chunk.js"
+    "revision": "13a5d04d0064433355e7",
+    "url": "/thehideawaypanamacity-react/static/js/main.7dc4e9f8.chunk.js"
   },
   {
     "revision": "af4d437cb7ac39fb8f24",
