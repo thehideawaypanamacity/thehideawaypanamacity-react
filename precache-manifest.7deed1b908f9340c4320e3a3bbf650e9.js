@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "f834a97ca509fdf02509f36a1c1d71d2",
+    "revision": "f6eced1bb5e2058c92b2f4f0947888f3",
     "url": "/thehideawaypanamacity-react/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/thehideawaypanamacity-react/static/css/2.b553dc6b.chunk.css"
   },
   {
-    "revision": "b55e89b01a990af0c659",
+    "revision": "13a5d04d0064433355e7",
     "url": "/thehideawaypanamacity-react/static/css/main.c49fbf15.chunk.css"
   },
   {
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/thehideawaypanamacity-react/static/js/2.dfec6f7f.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "b55e89b01a990af0c659",
-    "url": "/thehideawaypanamacity-react/static/js/main.96b1266c.chunk.js"
+    "revision": "13a5d04d0064433355e7",
+    "url": "/thehideawaypanamacity-react/static/js/main.7dc4e9f8.chunk.js"
   },
   {
     "revision": "af4d437cb7ac39fb8f24",
