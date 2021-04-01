@@ -35,6 +35,10 @@ Here is what I did:
 5. get service url and use it in client in `HopePage` in `componentDidMount` hook
 
 # Hosting
+The website is hosted on github pages.
+It is using [gh-pages](https://github.com/tschaub/gh-pages)
+To deploy new changes just use command
+`npm run deploy`
 
  ---
 
