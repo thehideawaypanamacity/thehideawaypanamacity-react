@@ -1,15 +1,14 @@
 import React from 'react';
 import { Carousel}  from 'react-responsive-carousel';
-import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
-import './MyCarousel.css';
+import styles from './MyCarousel.module.css';
 
 export default function MyCarousel(props) {
   return (
       <Carousel 
-      showThumbs={false} 
-      showIndicators={false} 
-      swipeable
-      dynamicHeight>
+        showThumbs={false} 
+        showIndicators={false} 
+        swipeable
+        dynamicHeight>
         {props.children}
       </Carousel>
   );

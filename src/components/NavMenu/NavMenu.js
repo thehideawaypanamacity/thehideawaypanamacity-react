@@ -1,7 +1,7 @@
 import React from 'react';
-import './NavMenu.css';
-import { NavLink } from "react-router-dom";
-
+import Link from 'next/link'
+import styles from './NavMenu.module.css';
+import Image from 'next/image'
 
 export default function NavMenue(props) {
     function socialIcons() {
@@ -11,26 +11,25 @@ export default function NavMenue(props) {
                     target="_blank"
                     rel="noopener noreferrer"
                     href="https://www.airbnb.com/users/140494398/listings">
-                    <img className="social-icon"
+                    <Image className={styles["social-icon"]}
                         src={require("../../assets/icons/airbnb.svg")}
-                        alt="linkedin icon">
-                    </img>
+                        alt="linkedin icon"/>
                 </a>
             </li>
         );
     }
 
     function getManuClass(isVertical) {
-        return ((isVertical ? "nav-menu-vertical" : "nav-menu-horizontal"))
+        return ((isVertical ? styles["nav-menu-vertical"] : styles["nav-menu-horizontal"]))
     }
 
     function getShowClass(isVertical, isShown) {
         if(isVertical && isShown ){
-            return "vertical-show";
+            return styles["vertical-show"];
         } else if(!isVertical && isShown ) {
-            return "horizontal-show";
+            return styles["horizontal-show"];
         } else if(!isShown && !isVertical) {
-            return "horizontal-show";
+            return styles["horizontal-show"];
         } else {
             return "";
         };
@@ -39,10 +38,10 @@ export default function NavMenue(props) {
     return (
             <ul id="nav-menu" className={getManuClass(props.isVertical) + " " + getShowClass(props.isVertical, props.isShown)}>
                 <li>
-                    <NavLink to="/home">Home</NavLink>
+                    <Link href="/home">Home</Link>
                 </li>
                 <li>
-                    <NavLink to="/about">About</NavLink>
+                    <Link href="/about">About</Link>
                 </li>
                 {props.isVertical ? socialIcons() : null}
             </ul>

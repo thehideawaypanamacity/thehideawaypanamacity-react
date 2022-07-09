@@ -1,7 +1,7 @@
 import React from 'react';
 import Card from '../../components/Card/Card';
 import Section from '../../components/Section/Section';
-import './AboutPage.css'
+import styles from './About.module.css';
 
 const card = {
     image: {
@@ -18,7 +18,7 @@ const card = {
     Vacation and business traveler's from literally around the world find their peace here at "The Hideaway" Panama City, Florida.`
 };
 
-export default class AboutPage extends React.Component {
+export default class About extends React.Component {
     constructor(props, context) {
         super(props);
 

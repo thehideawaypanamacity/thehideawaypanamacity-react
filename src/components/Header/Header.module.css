@@ -1,4 +1,4 @@
-header {
+.header {
     background-color: #02537e;
     min-height: 50vh;
     display: flex;
@@ -17,17 +17,17 @@ header {
     width: 40%;
 }
 
-header h2 {
+.header h2 {
     margin-top: 3.5rem;
     margin-bottom: 0;
 }
 
-header h2, header p {
+.header h2, .header p {
     color: #fff;
 }
 
 @media only screen and (max-width: 769px){
-    header {
+    .header {
         padding: 1rem;
         padding-top: 0;
     }

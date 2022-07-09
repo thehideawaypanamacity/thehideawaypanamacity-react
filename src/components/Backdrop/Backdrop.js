@@ -1,5 +1,5 @@
 import React from 'react';
-import './Backdrop.css';
+import styles from './Backdrop.module.css';
 
 export default function Backdrop(props) {
     const backdropStyles = props.zIndex ? { zIndex: props.zIndex } : { zIndex: 2 };
@@ -18,7 +18,7 @@ export default function Backdrop(props) {
     }
     
     return (
-        <div className={"backdrop " + getPropsClassNames(props)}
+        <div className={`${styles.backdrop }` + getPropsClassNames(props)}
             style={backdropStyles} 
             onClick={handleClick}>
         </div>

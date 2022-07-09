@@ -22,11 +22,11 @@
     width: 60%;
 }
 
-.card-content > h3, h4 {
+.card-content h3, .card-content h4 {
     margin: 1rem;
 }
 
-.card-content > p {
+.card-content p {
     margin: 1rem;
     text-align: center;
     white-space: pre-wrap;
@@ -43,7 +43,7 @@
         width: 100%;
     }
 
-    .card-content > h3, h4 {
+    .card-content h3, .card-content h4 {
         margin: 0.5rem;
     }
 }

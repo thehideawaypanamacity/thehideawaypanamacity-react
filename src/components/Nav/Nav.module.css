@@ -1,4 +1,4 @@
-nav {
+.nav {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -15,11 +15,11 @@ nav {
     padding-bottom: 0.5rem;
 }
 
-nav > h1 {
+.nav h1 {
     color: #fff;
 }
 
-nav.full-opacity {
+.nav.full-opacity {
     background: #02537e;
 }
 
@@ -31,7 +31,7 @@ nav.full-opacity {
     margin-right: 3rem;
 }
 
-#logo>a {
+#logo a {
     text-decoration: none;
     color: inherit;
 }

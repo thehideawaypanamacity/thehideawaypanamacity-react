@@ -1,10 +1,11 @@
 import React from 'react';
-import './Header.css';
+import styles from './Header.module.css';
+
 
 export default function Header() {
   return (
-    <header className="header">
-      <div className="header-title">
+    <header className={styles.header}>
+      <div className={styles["header-title"]}>
         <h2>Your Getaway Panama City, Florida</h2>      
         <p>
           Come stay at our vacation rentals. 

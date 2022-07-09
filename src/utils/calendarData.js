@@ -1,19 +1,23 @@
-import axios from 'axios';
 const ical = require('ical');
 
-
 const isEventType = (data) => (property) => data[property].type === 'VEVENT';
+
 const addDaysToDate = (date, days) => {
     const result = new Date(date);
 
     result.setDate(result.getDate() + days);
 
-    return result;;
+    return result;
 }
+
 const getCalendarRangeObj = (data, options) => (property) => {
     // calculate checkin and checkout dates
-    const startDate = addDaysToDate(data[property].start, 1);
-    const endDate = addDaysToDate(data[property].end, -1);
+    const calculatedStart = addDaysToDate(data[property].start, 1);
+    const calculatedEnd = addDaysToDate(data[property].end, -1);
+
+    //JSON parse is needed for Nextjs getStaticProps to return result into component props
+    const startDate = JSON.parse(JSON.stringify(calculatedStart));
+    const endDate = JSON.parse(JSON.stringify(calculatedEnd));
 
     return {
         startDate,
@@ -25,10 +29,13 @@ const getCalendarRangeObj = (data, options) => (property) => {
     } 
 };
 
-export async function getCalendarEventsFromUrl(url, requestOptions, rangeOptions) {
+export const getCalendarEventsFromUrl = async (url, rangeOptions) => {
+    if(!url) return [];
+
     try {
-        const response = await axios.get(url, requestOptions);
-        const parsedData = ical.parseICS(response.data);
+        const response = await fetch(url);
+        const data = await response.text()
+        const parsedData = ical.parseICS(data);
         const calendarData = Object
             .keys(parsedData)
             .filter(isEventType(parsedData))
@@ -36,7 +43,38 @@ export async function getCalendarEventsFromUrl(url, requestOptions, rangeOptions
 
         return calendarData;
     } catch (error) {
+        console.error(`Failed to fetch callendar from "${url}"`)
         console.error(error);
         return [];
     }
 }
+
+export const setListingsCalendarRange = async (listing) => {
+    const airBnbCalendarRanges = await getCalendarEventsFromUrl(
+      listing.airBnbCalendarLink,
+      {
+        color: "#FF5722",
+      }
+    );
+    const vrboCalendarRanges = await getCalendarEventsFromUrl(
+      listing.vrboCalendarLink,
+      {
+        color: "#02537e",
+      }
+    );
+
+    listing.calendarRanges = airBnbCalendarRanges.concat(vrboCalendarRanges);
+
+    return listing;
+  };
+
+export const setAdditionalImageProps = (listing) => (image) => ({
+  ...image,
+  src: require(`../assets/images/${listing.imageBaseUrl || ""}${image.src}`),
+  alt: listing.title,
+});
+
+export const setAdditionalListingProps = (listing) => ({
+  ...listing,
+  images: listing.images.map(setAdditionalImageProps(listing)),
+});

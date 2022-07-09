@@ -1,7 +1,8 @@
 import React from 'react'
-import './Card.css';
-import '../../shared/styles/elevation.css';
+import styles from './Card.module.css';
 import MyCarousel from '../Carousel/MyCarousel';
+import Image from 'next/image'
+
 
 export default function Card(props) {
   function getPropsClassNames(classNames) {
@@ -16,20 +17,20 @@ export default function Card(props) {
   function getImage(image, key) {
     return (
       <div key={key}>
-        <img
+        <Image
           style={image.style ?? {}}
           className={getPropsClassNames(image.className)}
           src={image.src}
-          alt={image.alt}>
-        </img>
-        {image.description ? <h4 className="legend">{image.description}</h4> : null}
+          alt={image.alt}/>
+        
+        {image.description ? <h4 className={styles.legend}>{image.description}</h4> : null}
       </div>
     );
   }
 
   function getCarousel(images) {
     return (
-      <div className="card-carousel">
+      <div className={styles["card-carousel"]}>
         <MyCarousel>
           {images.map(getImage)}
         </MyCarousel>
@@ -38,13 +39,13 @@ export default function Card(props) {
   }
 
   return (
-    <div style={props.style} className={"card elevation-4 " + getPropsClassNames(props.className)}>
+    <div style={props.style} className={`${styles["card"]} + elevation-4 ` + getPropsClassNames(props.className)}>
       {
         props.carousel && props.images
           ? getCarousel(props.images)
           : getImage(props.image)
       }
-      <div className="card-content">
+      <div className={styles["card-content"]}>
         {props.title ? <h3>{props.title}</h3> : null}
         {props.subtitle ? <h4>{props.subtitle}</h4> : null}
         <p>{props.text}</p>

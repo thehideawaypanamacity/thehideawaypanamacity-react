@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
-import { NavLink } from "react-router-dom";
-import './Nav.css';
-import '../../shared/styles/elevation.css';
+import Link from 'next/link'
+import styles from './Nav.module.css';
 import Backdrop from '../Backdrop/Backdrop';
 import NavMenue from '../NavMenu/NavMenu';
 import Burger from '../Burger/Burger';
@@ -31,20 +30,20 @@ export default function Nav(props) {
     setIsBurgerClicked(!isBurgerClicked);
   }
 
-  const stylesOnScroll = isScrolled ? 'full-opacity elevation-8' : '';
+  const stylesOnScroll = isScrolled ? `${styles["full-opacity"]} elevation-8"` : '';
 
   useEffect(() => window.addEventListener("scroll", listenScrollEvent));
 
   return (
     <div>
-      <nav className={`${stylesOnScroll}`}>
+      <nav className={`${styles.nav} ${stylesOnScroll}`}>
         <h1 id="logo">
-          <NavLink to="/home">The Hideaway Panamacity</NavLink>
+          <Link href="/home">The Hideaway Panamacity</Link>
         </h1>
         <Burger onClick={handleBurgerClick} isClicked={isBurgerClicked}></Burger>
         <NavMenue isShown={isNavMenuOpened} isVertical={isTabletOrMobile}></NavMenue>
       </nav>
-        <Backdrop zIndex={2} className={isNavMenuOpened && isTabletOrMobile ? "backdrop-fade-in" : "backdrop-fade-out"} onClick={handleBackdropClick}></Backdrop>
+        <Backdrop zIndex={2} className={isNavMenuOpened && isTabletOrMobile ? styles["backdrop-fade-in"] : styles["backdrop-fade-out"]} onClick={handleBackdropClick}></Backdrop>
     </div>
   );
 }

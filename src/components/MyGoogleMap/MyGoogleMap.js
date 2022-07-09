@@ -1,5 +1,5 @@
 import React from 'react';
-import './MyGoogleMap.css';
+import styles from './MyGoogleMap.module.css';
 
 
 export default function MyGoogleMap(props) {
