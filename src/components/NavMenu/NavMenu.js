@@ -19,31 +19,15 @@ export default function NavMenue(props) {
         );
     }
 
-    function getManuClass(isVertical) {
-        return ((isVertical ? styles["nav-menu-vertical"] : styles["nav-menu-horizontal"]))
-    }
-
-    function getShowClass(isVertical, isShown) {
-        if(isVertical && isShown ){
-            return styles["vertical-show"];
-        } else if(!isVertical && isShown ) {
-            return styles["horizontal-show"];
-        } else if(!isShown && !isVertical) {
-            return styles["horizontal-show"];
-        } else {
-            return "";
-        };
-    }
-
     return (
-            <ul id={styles["nav-menu"]} className={`${getManuClass(props.isVertical)} ${getShowClass(props.isVertical, props.isShown)}`}>
+            <ul id={styles["nav-menu"]} className={`${props.isMobileShown ? styles["vertical-show"] : ""}`}>
                 <li>
                     <Link href="/home">Home</Link>
                 </li>
                 <li>
                     <Link href="/about">About</Link>
                 </li>
-                {props.isVertical ? socialIcons() : null}
+                {props.isMobileShown ? socialIcons() : null}
             </ul>
     );
 }

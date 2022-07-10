@@ -10,9 +10,8 @@ import { useMediaQuery } from 'react-responsive'
 export default function Nav(props) {
   // eslint-disable-next-line no-unused-vars
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isNavMenuOpened, setIsNavMenuOpened] = useState(false);
+  const [isNavMobileMenuOpened, setIsNavMenuOpened] = useState(false);
   const [isBurgerClicked, setIsBurgerClicked] = useState(false);
-  const isTabletOrMobile = useMediaQuery({ query: '(max-width: 769px)' })
 
   function listenScrollEvent() {
     return window.scrollY > 10
@@ -21,12 +20,12 @@ export default function Nav(props) {
   }
 
   function handleBackdropClick() {
-    setIsNavMenuOpened(!isNavMenuOpened);
+    setIsNavMenuOpened(!isNavMobileMenuOpened);
     setIsBurgerClicked(!isBurgerClicked);
   }
 
   function handleBurgerClick() {
-    setIsNavMenuOpened(!isNavMenuOpened);
+    setIsNavMenuOpened(!isNavMobileMenuOpened);
     setIsBurgerClicked(!isBurgerClicked);
   }
 
@@ -41,9 +40,9 @@ export default function Nav(props) {
           <Link href="/home">The Hideaway Panamacity</Link>
         </h1>
         <Burger onClick={handleBurgerClick} isClicked={isBurgerClicked}></Burger>
-        <NavMenue isShown={isNavMenuOpened} isVertical={isTabletOrMobile}></NavMenue>
+        <NavMenue isMobileShown={isNavMobileMenuOpened}></NavMenue>
       </nav>
-        <Backdrop zIndex={2} className={isNavMenuOpened && isTabletOrMobile ? styles["backdrop-fade-in"] : styles["backdrop-fade-out"]} onClick={handleBackdropClick}></Backdrop>
+       <Backdrop zIndex={2} isShown={isBurgerClicked} onClick={handleBackdropClick}></Backdrop>
     </div>
   );
 }

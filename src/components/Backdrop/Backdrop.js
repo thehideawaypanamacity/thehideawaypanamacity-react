@@ -9,16 +9,8 @@ export default function Backdrop(props) {
         props.onClick();
     }
 
-    function getPropsClassNames(props) {
-        return props
-            .className
-            .split()
-            .map(x => x.trim())
-            .join(" ");
-    }
-    
     return (
-        <div className={`${styles.backdrop } ${getPropsClassNames(props)}`}
+        <div className={`${styles.backdrop} ${props.isShown ? styles["backdrop-in"] : styles["backdrop-out"]}`}
             style={backdropStyles} 
             onClick={handleClick}>
         </div>

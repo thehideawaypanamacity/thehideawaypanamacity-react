@@ -35,16 +35,3 @@
     text-decoration: none;
     color: inherit;
 }
-
-.backdrop-fade-in {
-    opacity: 1;    
-    transition: opacity 0.3s linear;
-    -webkit-transition: opacity 0.3s linear;
-}
-
-.backdrop-fade-out {
-    opacity: 0;
-    transition: opacity 0.3s linear;
-    -webkit-transition: opacity 0.3s linear;
-    pointer-events: none
-}
