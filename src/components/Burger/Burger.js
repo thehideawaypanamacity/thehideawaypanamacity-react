@@ -9,7 +9,7 @@ export default function Burger(props) {
 
     return (
         <div
-            id="burger"
+            id={styles.burger}
             aria-label="Toggle menu"
             onClick={handleClick}
             className={props.isClicked ? styles["burger-is-clicked"] : ""}>

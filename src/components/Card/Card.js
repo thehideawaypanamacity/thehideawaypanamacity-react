@@ -17,13 +17,14 @@ export default function Card(props) {
   function getImage(image, key) {
     return (
       <div key={key}>
-        <Image
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
           style={image.style ?? {}}
           className={getPropsClassNames(image.className)}
           src={image.src}
           alt={image.alt}/>
         
-        {image.description ? <h4 className={styles.legend}>{image.description}</h4> : null}
+        {image.description ? <h4 className="legend">{image.description}</h4> : null}
       </div>
     );
   }
@@ -39,7 +40,7 @@ export default function Card(props) {
   }
 
   return (
-    <div style={props.style} className={`${styles["card"]} + elevation-4 ` + getPropsClassNames(props.className)}>
+    <div style={props.style} className={`${styles["card"]} elevation-4 ${getPropsClassNames(props.className)}`}>
       {
         props.carousel && props.images
           ? getCarousel(props.images)

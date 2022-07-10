@@ -12,7 +12,7 @@ export default function NavMenue(props) {
                     rel="noopener noreferrer"
                     href="https://www.airbnb.com/users/140494398/listings">
                     <Image className={styles["social-icon"]}
-                        src={require("../../assets/icons/airbnb.svg")}
+                        src="/assets/icons/airbnb.svg"
                         alt="linkedin icon"/>
                 </a>
             </li>
@@ -36,7 +36,7 @@ export default function NavMenue(props) {
     }
 
     return (
-            <ul id="nav-menu" className={getManuClass(props.isVertical) + " " + getShowClass(props.isVertical, props.isShown)}>
+            <ul id={styles["nav-menu"]} className={`${getManuClass(props.isVertical)} ${getShowClass(props.isVertical, props.isShown)}`}>
                 <li>
                     <Link href="/home">Home</Link>
                 </li>

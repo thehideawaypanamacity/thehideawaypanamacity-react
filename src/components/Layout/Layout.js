@@ -25,17 +25,17 @@ function Layout(props) {
         <title>The Hideaway Panamacity</title>
       </Head>
 
-      <main className={styles.wrapper}>
+      <div className={styles.wrapper}>
         <Nav>
         </Nav>
         <Header>
         </Header>
-        <div className={styles["main-content"]}>
+        <main className={styles["main-content"]}>
           {props.children}
-        </div>
+        </main>
         <Footer>
         </Footer>
-      </main>
+      </div>
     </>
   );
 }

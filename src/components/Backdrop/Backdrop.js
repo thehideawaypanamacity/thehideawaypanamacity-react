@@ -18,7 +18,7 @@ export default function Backdrop(props) {
     }
     
     return (
-        <div className={`${styles.backdrop }` + getPropsClassNames(props)}
+        <div className={`${styles.backdrop } ${getPropsClassNames(props)}`}
             style={backdropStyles} 
             onClick={handleClick}>
         </div>

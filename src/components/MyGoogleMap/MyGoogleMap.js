@@ -4,7 +4,7 @@ import styles from './MyGoogleMap.module.css';
 
 export default function MyGoogleMap(props) {
   return (
-    <div id="google-map-container">
+    <div id={styles["google-map-container"]}>
       <iframe
         title="google maps"
         frameBorder="0"

@@ -30,14 +30,14 @@ export default function Nav(props) {
     setIsBurgerClicked(!isBurgerClicked);
   }
 
-  const stylesOnScroll = isScrolled ? `${styles["full-opacity"]} elevation-8"` : '';
+  const stylesOnScroll = isScrolled ? `${styles["full-opacity"]} elevation-8` : '';
 
   useEffect(() => window.addEventListener("scroll", listenScrollEvent));
 
   return (
     <div>
       <nav className={`${styles.nav} ${stylesOnScroll}`}>
-        <h1 id="logo">
+        <h1 id={styles.logo}>
           <Link href="/home">The Hideaway Panamacity</Link>
         </h1>
         <Burger onClick={handleBurgerClick} isClicked={isBurgerClicked}></Burger>

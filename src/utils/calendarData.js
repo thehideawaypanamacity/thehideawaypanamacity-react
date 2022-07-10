@@ -70,7 +70,7 @@ export const setListingsCalendarRange = async (listing) => {
 
 export const setAdditionalImageProps = (listing) => (image) => ({
   ...image,
-  src: require(`../assets/images/${listing.imageBaseUrl || ""}${image.src}`),
+  src: `./assets/images/${listing.imageBaseUrl || ""}${image.src}`,
   alt: listing.title,
 });
 

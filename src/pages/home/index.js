@@ -2,7 +2,7 @@ import Button from "../../components/Button/Button";
 import Card from "../../components/Card/Card";
 import { MyCalendar } from "../../components/MyCalendar/MyCalendar";
 import Section from "../../components/Section/Section";
-import listingsData from "../../assets/json/listings.json";
+import listingsData from "../../data/listings.json";
 import { setListingsCalendarRange, setAdditionalListingProps } from "../../utils/calendarData";
 import styles from "./Home.module.css";
 import Image from 'next/image'
@@ -27,18 +27,20 @@ const Home = ({ listingsResponseData }) => {
             <div className={styles["book-button-group"]}>
               {card.airBnbLink ? (
                 <Button url={card.airBnbLink}>
-                  <Image
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
                     alt="airbnb book button icon"
-                    src={require("../../assets/icons/airbnb_w.svg")}
+                    src="/assets/icons/airbnb_w.svg"
                   />
                   Book On AirBnb
                 </Button>
               ) : null}
               {card.vrboLink ? (
                 <Button className={styles["vrbo"]} url={card.vrboLink}>
-                  <Image
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
                     alt="vrbo book button icon"
-                    src={require("../../assets/icons/vrbo_w.svg")}
+                    src="/assets/icons/vrbo_w.svg"
                   />
                   Book On VRBO
                 </Button>

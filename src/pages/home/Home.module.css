@@ -9,11 +9,11 @@
     background-color: rgb(2, 83, 126);
 }
 
-.book-button-group .button {
+.book-button-group > * {
     margin-right: 1rem;
 }
 
-.book-button-group .button:last-child {
+.book-button-group > *:last-child {
     margin-right: 0;
 }
 
@@ -22,7 +22,7 @@
         flex-direction: column;
     }
 
-    .book-button-group .button {
+    .book-button-group > *{
         margin: 0 0 1rem 0;
     }
 }

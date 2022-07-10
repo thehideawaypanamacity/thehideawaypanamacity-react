@@ -14,7 +14,7 @@ export default function Button(props) {
   return (
       props.url 
       ? <a disabled={props.disabled} 
-            className={`${styles.button} ${styles.ripple} elevation-4 `  + getPropsClassNames(props.className)}
+            className={`${styles.button} ${styles.ripple} elevation-4 ${getPropsClassNames(props.className)}`}
             target="_blank" 
             rel="noopener noreferrer"
             href={props.url}
@@ -23,7 +23,7 @@ export default function Button(props) {
           {props.children}
         </a> 
       : <button disabled={props.disabled}
-                className={`${styles.button} ${styles.ripple} elevation-4 ` + getPropsClassNames(props.className)}
+                className={`${styles.button} ${styles.ripple} elevation-4  ${getPropsClassNames(props.className)}`}
                 style={props.style}
                 onClick={props.onClick}>
           {props.children}
