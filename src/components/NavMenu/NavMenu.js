@@ -11,7 +11,7 @@ export default function NavMenue(props) {
                     target="_blank"
                     rel="noopener noreferrer"
                     href="https://www.airbnb.com/users/140494398/listings">
-                    <Image className={styles["social-icon"]}
+                    <img className={styles["social-icon"]}
                         src="/assets/icons/airbnb.svg"
                         alt="linkedin icon"/>
                 </a>
