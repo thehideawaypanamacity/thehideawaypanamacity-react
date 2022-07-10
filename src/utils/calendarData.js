@@ -77,4 +77,5 @@ export const setAdditionalImageProps = (listing) => (image) => ({
 export const setAdditionalListingProps = (listing) => ({
   ...listing,
   images: listing.images.map(setAdditionalImageProps(listing)),
+  calendarRanges: !listing.calendarRanges ? [] : listing.calendarRanges
 });

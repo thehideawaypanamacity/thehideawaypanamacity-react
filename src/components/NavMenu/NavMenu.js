@@ -1,7 +1,6 @@
 import React from 'react';
 import Link from 'next/link'
 import styles from './NavMenu.module.css';
-import Image from 'next/image'
 
 export default function NavMenue(props) {
     function socialIcons() {
@@ -11,6 +10,7 @@ export default function NavMenue(props) {
                     target="_blank"
                     rel="noopener noreferrer"
                     href="https://www.airbnb.com/users/140494398/listings">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img className={styles["social-icon"]}
                         src="/assets/icons/airbnb.svg"
                         alt="linkedin icon"/>

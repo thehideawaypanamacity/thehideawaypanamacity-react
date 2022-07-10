@@ -1,8 +1,6 @@
 import React from 'react'
 import styles from './Card.module.css';
 import MyCarousel from '../Carousel/MyCarousel';
-import Image from 'next/image'
-
 
 export default function Card(props) {
   function getPropsClassNames(classNames) {

@@ -1,17 +1,40 @@
+import { useEffect, useState } from "react";
 import Button from "../../components/Button/Button";
 import Card from "../../components/Card/Card";
 import { MyCalendar } from "../../components/MyCalendar/MyCalendar";
 import Section from "../../components/Section/Section";
 import listingsData from "../../data/listings.json";
-import { setListingsCalendarRange, setAdditionalListingProps } from "../../utils/calendarData";
 import styles from "./Home.module.css";
-import Image from 'next/image'
+import { setAdditionalListingProps } from "../../utils/calendarData";
+import { useRouter } from "next/router";
 
-const Home = ({ listingsResponseData }) => {
+const Home = () => {
+  const router = useRouter();
+  const [listings, setListings] = useState(listingsData);
+
+  useEffect(() => {
+    const mutatedListings = listings.map(setAdditionalListingProps);
+
+    setListings(mutatedListings);
+
+    //Reason when we mutate listings and adding calendar ranges via next api is that fetching calendar on client side causes CORS.
+    fetch(router.basePath + "api/calendar", {
+      method: "POST",
+      body: JSON.stringify(mutatedListings),
+    })
+    .then(response => response.json())
+    .then((mutatedListings) => {
+      if (mutatedListings && mutatedListings.length) {
+
+        setListings(mutatedListings);
+      }
+    })
+  }, []);
+
   return (
     <div>
       <Section title="Our Listings">
-        {listingsResponseData.map(setAdditionalListingProps).map((card, i) => (
+        {listings.map((card, i) => (
           <Card
             key={i}
             title={card.title}
@@ -21,8 +44,9 @@ const Home = ({ listingsResponseData }) => {
             text={card.text}
             style={card.style}
           >
-
-            <MyCalendar ranges={card.calendarRanges}></MyCalendar>
+            {card.calendarRanges && (
+              <MyCalendar ranges={card.calendarRanges}></MyCalendar>
+            )}
 
             <div className={styles["book-button-group"]}>
               {card.airBnbLink ? (
@@ -37,7 +61,7 @@ const Home = ({ listingsResponseData }) => {
               ) : null}
               {card.vrboLink ? (
                 <Button className={styles["vrbo"]} url={card.vrboLink}>
-                {/* eslint-disable-next-line @next/next/no-img-element */}
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     alt="vrbo book button icon"
                     src="/assets/icons/vrbo_w.svg"
@@ -51,18 +75,6 @@ const Home = ({ listingsResponseData }) => {
       </Section>
     </div>
   );
-};
-
-export async function getStaticProps (ctx) {
-  const promises = []
-
-  for (const listing of listingsData) {
-    promises.push(setListingsCalendarRange(listing))
-  }
-
-  const listingsResponseData = await Promise.all(promises)
-
-  return { props: {listingsResponseData} };
 };
 
 export default Home;
