@@ -7,10 +7,6 @@ const card = {
   image: {
     alt: "Chuck's About Me",
     src: "/assets/images/chuck_about.jpg",
-    style: {
-      width: "20%",
-      borderRadius: "50%"
-    }
   },
   title: "Hi I'm Chuck",
   text: `Hello, I am a property owner and long time builder. 
@@ -30,6 +26,7 @@ const About = () => {
         subtitle={card.subtitle}
         image={card.image}
         text={card.text}
+        className={styles.card}
       >
         <h4>For price and rent text 850-890-4808</h4>
       </Card>
